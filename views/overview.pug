@@ -1,0 +1,46 @@
+extends index
+
+block content
+  main.main
+    div.card-container
+      - const itemsPerPage = 3
+      - const totalPages = Math.ceil(books.length / itemsPerPage)
+      - const currentPage = currentPageNumber
+      - const startIndex = (currentPage - 1) * itemsPerPage
+      - const endIndex = startIndex + itemsPerPage
+      - const visibleBooks = books.slice(startIndex, endIndex)
+
+      each book in visibleBooks
+        div.card
+          div.card__header
+            div.card__picture
+              div.card__picture-overlay &nhso;
+              img.card__picture-img(src=`${book.BookImage}`, alt=`${book.Title}`)
+            h3.heading-tertirary
+              span= book.Title
+
+          div.card__details
+            h4.card__sub-heading=`by ${book.Publisher}`
+            p.card__text= book.Description
+            div.card__data
+              svg.card__icon
+                use(xLink:href="/image/icons.svg#icon-user")
+              - const name = book.AuthorId.AuthorName ? book.AuthorId.AuthorName : 'me'
+              span= `Book added by ${name}`
+            div.card__data
+              svg.card__icon
+                use(xLink:href="/image/icons.svg#icon-calendar")
+              span= `Added on ${book.createdAt.toDateString()}`
+            div.card__data
+              svg.card__icon
+                use(xLink:href="/image/icons.svg#icon-calendar")
+              span= `Updated on ${book.updatedAt.toDateString()}`
+          div.card__footer
+            a.btn.btn--green.btn--small(href=`/api/book/${book._id}`) Read more
+
+    
+    if totalPages > 1
+      ul.pagination
+        - for (let page = 1; page <= totalPages; page++)
+          li.pagination-item
+            a.pagination-link(href=`?page=${page}`)= `Page ${page}`

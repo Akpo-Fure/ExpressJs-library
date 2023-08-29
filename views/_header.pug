@@ -1,0 +1,17 @@
+header.header
+  nav.nav.nav--tours
+    a.nav__el(href='/api') All books
+  div.header_logo
+    img(src='/image/bookicon.png' alt='Akpofures logo')
+  nav.nav.nav--user 
+    if author
+      a.nav__el.nav__el--logout Log Out
+      a.nav__el(href='/api/me')
+        div.card__data
+          svg.card__icon 
+            use(xLink:href="/image/icons.svg#icon-user")
+        //- img.nav__user-img(src='author.DisplayImage', alt=`Photo of ${author.AuthorName}`)
+        span= author.AuthorName.split(' ')[0]
+    else
+      a.nav__el(href='/api/login') Log in 
+      a.nav__el.nav__el--cta(href='/api/signup') Sign up

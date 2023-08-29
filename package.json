@@ -1,0 +1,55 @@
+{
+  "name": "akpofure-s-library",
+  "version": "0.0.0",
+  "private": true,
+  "author": "Okegbe Akpofure Kelvin-Faith <okegbeakpofurekelvin@gmail.com>",
+  "scripts": {
+    "start": "node ./bin/www",
+    "library": "nodemon ./bin/www",
+    "watch": "tsc --watch",
+    "build": "tsc",
+    "watch:js": "parcel watch ./public/javascript/index.js --out-dir ./public/javascript --out-file bundle.js",
+    "build:js": "parcel build ./public/javascript/index.js --out-dir ./public/javascript --out-file bundle.js",
+    "test": "jest --detectOpenHandles"
+  },
+  "engines": {
+    "node": ">=14.20.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "axios": "^1.4.0",
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "debug": "~2.6.9",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "global": "^4.4.0",
+    "glocal": "^0.2.0",
+    "http-errors": "^2.0.0",
+    "jade": "~1.11.0",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.4.2",
+    "morgan": "^1.10.0",
+    "npm": "9.8.1",
+    "pug": "^3.0.2",
+    "vercel": "^32.1.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cookie-parser": "^1.4.3",
+    "@types/express": "^4.17.17",
+    "@types/http-errors": "^2.0.1",
+    "@types/jest": "^29.5.4",
+    "@types/jsonwebtoken": "^9.0.2",
+    "@types/morgan": "^1.9.4",
+    "@types/supertest": "^2.0.12",
+    "jest": "^29.6.4",
+    "mongodb-memory-server": "^8.15.1",
+    "parcel-bundler": "^1.12.5",
+    "supertest": "^6.3.3",
+    "tsc": "^2.0.4",
+    "typescript": "^5.2.2"
+  }
+}

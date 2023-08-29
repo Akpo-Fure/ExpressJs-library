@@ -1,0 +1,12 @@
+extends index 
+
+block content
+   main.main 
+     div.deletebook-form
+       h2.heading-secondary.ma-bt-lg Delete Book
+       form.form.form--deletebook
+        .form__group
+          label.form__label(for='deletebook') Book ID
+          input#bookid.form__input(type='text', placeholder='Enter Book ID', required)
+        .form__group
+          button.btn.btn--green Delete Book

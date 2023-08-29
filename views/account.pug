@@ -1,0 +1,36 @@
+extends index 
+
+mixin navItem(link, text, icon, active)
+  li(class=`${active ? 'side-nav--active' : ''}`)
+    a(href=`${link}`)
+      svg 
+        use(xlink:href=`/image/icons.svg#icon-${icon}`)
+      | #{text}
+
+block content
+  main.main
+    .user-view 
+      nav.user-view__menu 
+        ul.side-nav
+          +navItem('#', 'Settings', 'settings', true)
+          +navItem('/api/my-books', 'My Books', 'book')
+          +navItem('/api/add-book', 'Add Book', 'settings')
+          +navItem('/api/update-book', 'Update Book', 'settings')
+          +navItem('/api/delete-book', 'Delete Book', 'settings')
+
+      nav.user-view__content 
+        .user-view__form-container 
+          h2.heading-secondary.ma-bt-md Your account settings 
+          form.form.form-user-data
+            .form__group
+              label.form__label(for='name') Name
+              input#name.form__input(type='text', value=author.AuthorName, required, name='AuthorName')
+            .form__group.ma-bt-md
+              label.form__label(for='email') Email Address
+              input#email.form__input(type='email', value=author.Email, required, name='Email')
+            .form__group.ma-bt-md
+              label.form__label(for='phonenumber') Phone Number
+              input#phonenumber.form__input(type='text', value=author.PhoneNumber, required, minlength='11', maxlength='11', name='PhoneNumber')
+            .form__group.right 
+              button.btn.btn--small.btn--green Save settings
+                        

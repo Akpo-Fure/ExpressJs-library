@@ -1,0 +1,36 @@
+extends index 
+
+block content
+  main.main 
+    div.addbook-form
+      h2.heading-secondary.ma-bt-lg Create book
+      form.form.form--addbook
+        .form__group
+          label.form__label(for='title') Title
+          input#title.form__input(type='text', placeholder='Enter book title', required)
+        .form__group
+          label.form__label(for='datepublished') Date Published
+          input#datepublished.form__input(type='date', placeholder='Select publication date', required)
+        .form__group.ma-bt-md
+          label.form__label(for='description') Description
+          textarea#description.form__input(type='text', placeholder='Enter book description', required)
+        .form__group
+          label.form__label(for='pagecount') Page Count
+          input#pagecount.form__input(type='number', placeholder='Enter page count', required, min='1')
+        .form__group
+          label.form__label(for='genre') Genre
+          input#genre.form__input(type='text', placeholder='Enter book genre', required)
+        .form__group
+          label.form__label(for='bookimage') Book Image (Link)
+          input#bookimage.form__input(type='url', placeholder='Enter book image link', required)
+        .form__group
+          label.form__label(for='landscapeImages') Book Landscape Images (3 Links)
+          input#booklandscapeimages.form__input(type='url', placeholder='Enter 3 landscape image links serperated by comma', required)
+        .form__group
+          label.form__label(for='summary') Summary
+          textarea#summary.form__input(type='text', placeholder='Enter book summary', required)
+        .form__group
+          label.form__label(for='author') Author
+          input#author.form__input(type='text', placeholder='Enter author name', required)
+        .form__group
+          button.btn.btn--green Create Book
