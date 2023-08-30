@@ -4,3 +4,7 @@ This is a NodeJs application built using NodeJs, ExpresJs, TypeScript, with pug 
 # RUN YARN build to comiple from typescript
 # RUN YARN build:js to run parcel builder
 # RUN YARN start to start the server
+
+
+This is the documentation for the backend API as published on postman 
+https://documenter.getpostman.com/view/28610649/2s9Y5Zwhyy
