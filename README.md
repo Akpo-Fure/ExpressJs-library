@@ -46,12 +46,16 @@ RUN yarn
 
 7. Build the typescript code
 ```
-RUN yarn build
+RUN yarn watch
+```
+8. Build javascript code using parcel builder
+```
+RUN yarn watch:js
 ```
 
-9. Start the server
+10. Start the server
 ```
-RUN yarn start
+RUN yarn library
 ```
 
 10. Checkout https://documenter.getpostman.com/view/28610649/2s9Y5Zwhyy for postman documentation for a seamless user experience
