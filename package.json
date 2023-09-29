@@ -7,7 +7,7 @@
     "start": "NODE_ENV=production node ./bin/www",
     "library": "nodemon ./bin/www",
     "watch": "tsc --watch",
-    "build": "yarn --ignore-engines && tsc",
+    "build": "yarn --ignore-engines && npx tsc",
     "watch:js": "parcel watch ./public/javascript/index.js --out-dir ./public/javascript --out-file bundle.js",
     "build:js": "parcel build ./public/javascript/index.js --out-dir ./public/javascript --out-file bundle.js",
     "test": "jest --detectOpenHandles"
