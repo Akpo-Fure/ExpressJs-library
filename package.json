@@ -4,10 +4,10 @@
   "private": true,
   "author": "Okegbe Akpofure Kelvin-Faith <okegbeakpofurekelvin@gmail.com>",
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "NODE_ENV=production node ./bin/www",
     "library": "nodemon ./bin/www",
     "watch": "tsc --watch",
-    "build": "tsc",
+    "build": "yarn --ignore-engines && parcel build ./public/javascript/index.js --out-dir ./public/javascript --out-file bundle.js && tsc",
     "watch:js": "parcel watch ./public/javascript/index.js --out-dir ./public/javascript --out-file bundle.js",
     "build:js": "parcel build ./public/javascript/index.js --out-dir ./public/javascript --out-file bundle.js",
     "test": "jest --detectOpenHandles"
