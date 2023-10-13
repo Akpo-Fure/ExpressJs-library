@@ -36,8 +36,7 @@ export const login = async (Email, Password) => {
         Password,
       },
     });
-    console.log(res);
-    if (res.statusText === "OK") {
+    if (res.status === 200) {
       showAlert("success", "Logged in successfully");
       window.setTimeout(() => {
         location.assign("/api");
@@ -54,7 +53,7 @@ export const logout = async () => {
       method: "POST",
       url: "https://akpofures-library-gdql.onrender.com/authors/logout",
     });
-    if (res.statusText === "OK") {
+    if (res.status === 200) {
       showAlert("success", "Logged out successfully");
       window.setTimeout(() => {
         window.location.assign("/api");

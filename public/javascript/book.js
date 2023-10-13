@@ -28,7 +28,7 @@ export const addBook = async (
         Publisher,
       },
     });
-    if (res.statusText === "Created") {
+    if (res.status === 201) {
       showAlert("success", "Book added successfully");
       window.setTimeout(() => {
         location.assign("/api/my-books");
@@ -45,7 +45,7 @@ export const deleteBook = async (BookID) => {
       method: "DELETE",
       url: `https://akpofures-library-gdql.onrender.com/books/delete/${BookID}`,
     });
-    if (res.statusText === "OK") {
+    if (res.status === 204) {
       showAlert("success", "Book deleted successfully");
       window.setTimeout(() => {
         location.assign("/api/my-books");
@@ -84,7 +84,7 @@ export const updateBook = async (
         Publisher,
       },
     });
-    if (res.statusText === "OK") {
+    if (res.status === 200) {
       showAlert("success", "Book updated successfully");
       window.setTimeout(() => {
         location.assign(`/api/book/${BookID}`);

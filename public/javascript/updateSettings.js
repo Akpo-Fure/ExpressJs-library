@@ -12,7 +12,7 @@ export const updateData = async (AuthorName, Email, PhoneNumber) => {
         PhoneNumber,
       },
     });
-    if (res.statusText === "OK") {
+    if (res.status === 200) {
       showAlert("success", "Data updated successfully");
       window.setTimeout(() => {
         location.assign("/api/me");

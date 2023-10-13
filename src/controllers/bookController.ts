@@ -8,8 +8,17 @@ export const addBook = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { Title, DatePublished, Description, PageCount, Genre, BookImage, BookLandscapeImages, Summary, Publisher } =
-    req.body;
+  const {
+    Title,
+    DatePublished,
+    Description,
+    PageCount,
+    Genre,
+    BookImage,
+    BookLandscapeImages,
+    Summary,
+    Publisher,
+  } = req.body;
   try {
     //Create a book based on the inputs from our request body
     const book = await Book.create({
@@ -118,7 +127,7 @@ export const deleteBook = async (
           { new: true }
         ).populate("Books");
 
-        return res.json({ message: "Book removed successfully" });
+        return res.status(204).json({ message: "Book removed successfully" });
       } else {
         return res.status(401).json({
           error: "Not authorized to delete book. You didn't create the book",
@@ -128,9 +137,7 @@ export const deleteBook = async (
       return res.status(404).json({ error: "Book not found" });
     }
   } catch (error: any) {
-    res
-      .status(500)
-      .json({ error: "Failed to delete book" });
+    res.status(500).json({ error: "Failed to delete book" });
   }
 };
 
@@ -155,7 +162,8 @@ export const updateBook = async (
         book.PageCount = req.body.PageCount || book.PageCount;
         book.Genre = req.body.Genre || book.Genre;
         book.BookImage = req.body.BookImage || book.BookImage;
-        book.BookLandscapeImages = req.body.BookLandscapeImages || book.BookLandscapeImages;
+        book.BookLandscapeImages =
+          req.body.BookLandscapeImages || book.BookLandscapeImages;
         book.Summary = req.body.Summary || book.Summary;
         book.Publisher = req.body.Publisher || book.Publisher;
         const updatedBook = await book.save();
@@ -169,8 +177,6 @@ export const updateBook = async (
       return res.status(404).json({ error: "Book not found" });
     }
   } catch (error: any) {
-    res
-      .status(500)
-      .json({ error: "Failed to update book" });
+    res.status(500).json({ error: "Failed to update book" });
   }
 };
