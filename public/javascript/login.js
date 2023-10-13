@@ -36,6 +36,7 @@ export const login = async (Email, Password) => {
         Password,
       },
     });
+    console.log(res);
     if (res.statusText === "OK") {
       showAlert("success", "Logged in successfully");
       window.setTimeout(() => {
