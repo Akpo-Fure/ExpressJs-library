@@ -15,7 +15,7 @@ export const signup = async (AuthorName, Email, PhoneNumber, Password) => {
         Password,
       },
     });
-    if (res.statusText === "Created") {
+    if (res.status === 201) {
       showAlert("success", "Signed up successfully");
       window.setTimeout(() => {
         location.assign("/api");
